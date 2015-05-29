@@ -1,0 +1,169 @@
+# Kodi Media Center language file
+# Addon Name: Screensaver Shadertoy
+# Addon id: screensaver.shadertoy
+# Addon Provider: afedchin
+msgid ""
+msgstr ""
+"Project-Id-Version: XBMC Addons\n"
+"Report-Msgid-Bugs-To: http://trac.xbmc.org/\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Kodi Translation Team\n"
+"Language-Team: English (https://www.transifex.com/projects/p/xbmc-addons/language/en_US/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "#30000"
+msgid "ShaderToy"
+msgstr ""
+
+msgctxt "#30100"
+msgid "Random"
+msgstr ""
+
+msgctxt "#30001"
+msgid "Ball"
+msgstr ""
+
+msgctxt "#30002"
+msgid "Bleepy Blocks"
+msgstr ""
+
+msgctxt "#30003"
+msgid "Bob Scanline"
+msgstr ""
+
+msgctxt "#30004"
+msgid "Blobs"
+msgstr ""
+
+msgctxt "#30005"
+msgid "Blue Fire"
+msgstr ""
+
+msgctxt "#30006"
+msgid "Classic RGB Plasma"
+msgstr ""
+
+msgctxt "#30007"
+msgid "Dance Floor"
+msgstr ""
+
+msgctxt "#30008"
+msgid "Effect Ringblobs"
+msgstr ""
+
+msgctxt "#30009"
+msgid "Fire"
+msgstr ""
+
+msgctxt "#30010"
+msgid "Flaring 1"
+msgstr ""
+
+msgctxt "#30011"
+msgid "Flaring 2"
+msgstr ""
+
+msgctxt "#30012"
+msgid "Flaring 3"
+msgstr ""
+
+msgctxt "#30013"
+msgid "Flaring 4"
+msgstr ""
+
+msgctxt "#30014"
+msgid "Flaring 5"
+msgstr ""
+
+msgctxt "#30015"
+msgid "Interstellar"
+msgstr ""
+
+msgctxt "#30016"
+msgid "Interweaving Sine Bands"
+msgstr ""
+
+msgctxt "#30017"
+msgid "Julia Trap"
+msgstr ""
+
+msgctxt "#30018"
+msgid "Layers Of Plasma"
+msgstr ""
+
+msgctxt "#30019"
+msgid "Liquid Spectrum"
+msgstr ""
+
+msgctxt "#30020"
+msgid "Noise Animation Electric"
+msgstr ""
+
+msgctxt "#30021"
+msgid "Noise Animation Flow"
+msgstr ""
+
+msgctxt "#30022"
+msgid "Noise Animation Lava"
+msgstr ""
+
+msgctxt "#30023"
+msgid "Overly Satisfying"
+msgstr ""
+
+msgctxt "#30024"
+msgid "Plasma Circles"
+msgstr ""
+
+msgctxt "#30025"
+msgid "Plasma Triangle"
+msgstr ""
+
+msgctxt "#30026"
+msgid "Plasma Matrix"
+msgstr ""
+
+msgctxt "#30027"
+msgid "Pixellated Plasma"
+msgstr ""
+
+msgctxt "#30028"
+msgid "Silexars Creation"
+msgstr ""
+
+msgctxt "#30029"
+msgid "Sky at Night"
+msgstr ""
+
+msgctxt "#30030"
+msgid "Stars Background"
+msgstr ""
+
+msgctxt "#30031"
+msgid "Vector Field"
+msgstr ""
+
+msgctxt "#30032"
+msgid "Venus"
+msgstr ""
+
+msgctxt "#30033"
+msgid "Warp"
+msgstr ""
+
+msgctxt "#30034"
+msgid "Watch It Burn"
+msgstr ""
+
+msgctxt "#30035"
+msgid "Water Caustic"
+msgstr ""
+
+msgctxt "#30036"
+msgid "Worley Noise Waters"
+msgstr ""
