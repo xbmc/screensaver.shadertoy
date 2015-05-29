@@ -21,7 +21,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 	{
 		vec2 center = size * pos + vec2(size, size) * 0.5;
 		
-		float t = 0.9 + 0.2 * sin(iGlobalTime + (starValue - prob) / (1.0 - prob) * 45.0);
+		float t = 0.9 + 0.5 * sin(iGlobalTime * 2.0 + (starValue - prob) / (1.0 - prob) * 45.0);
 				
 		color = 1.0 - distance(fragCoord.xy, center) / (0.5 * size);
 		color = color * t / (abs(fragCoord.y - center.y)) * t / (abs(fragCoord.x - center.x));
@@ -29,8 +29,8 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 	else if (rand(fragCoord.xy / iResolution.xy) > 0.996)
 	{
 		float r = rand(fragCoord.xy);
-		color = r * (0.25 * sin(iGlobalTime * (r * 5.0) + 720.0 * r) + 0.75);
+		color = r * (0.5 * sin(iGlobalTime * (r * 2.5) + 720.0 * r) + 0.75);
 	}
 	
-	fragColor = vec4(vec3(color), 1.0);
+	fragColor = vec4(vec3(color,color,color), 1.0);
 }
