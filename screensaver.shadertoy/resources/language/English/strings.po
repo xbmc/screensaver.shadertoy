@@ -167,3 +167,7 @@ msgstr ""
 msgctxt "#30036"
 msgid "Worley Noise Waters"
 msgstr ""
+
+msgctxt "#30037"
+msgid "Sphere"
+msgstr ""
