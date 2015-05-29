@@ -36,6 +36,7 @@
 #include <fstream>
 #include <sstream>
 #include <algorithm>
+#include <vector>
 #include "toys.h"
 
 #define SAFE_RELEASE(p) do { if(p) { (p)->Release(); (p)=nullptr; } } while (0)
@@ -56,6 +57,12 @@ typedef enum ShaderType {
   PIXEL_SHADER
 };
 
+struct Preset {
+  std::string name;
+  std::string file;
+  int channel[4];
+};
+
 struct Params {
   XMFLOAT3 iResolution;
   float    iGlobalTime;
@@ -66,7 +73,52 @@ struct Params {
   XMFLOAT3 iChannelResolution[4];
 };
 
-// TODO read from filesystem
+const std::vector<Preset> g_presets =
+{
+  { "Ball",                     "ball.frag.glsl",              99, -1, -1, -1 },
+  { "Bleepy Blocks",            "bleepyblocks.frag.glsl",      99, -1, -1, -1 },
+  { "Bob Scanline",             "blobandscsanline.glsl",       -1, -1, -1, -1 },
+  { "Blobs",                    "blobs.frag.glsl",             -1, -1, -1, -1 },
+  { "Blue Fire",                "bluefire.frag.glsl",          -1, -1, -1, -1 },
+  { "Classic RGB Plasma",       "rgbplasma.frag.glsl",         -1, -1, -1, -1 },
+  { "Dance Floor",              "dancefloor.frag.glsl",        -1, -1, -1, -1 },
+  { "Effect Ringblobs",         "ringblobs.frag.glsl",         -1, -1, -1, -1 },
+  //{ "Ether",                    "ether.frag.glsl",             -1, -1, -1, -1 },
+  { "Fire",                     "fire.frag.glsl",              -1, -1, -1, -1 },
+  { "Flaring 1",                "flaringtype1.frag.glsl",      -1, -1, -1, -1 },
+  { "Flaring 2",                "flaringtype2.frag.glsl",      -1, -1, -1, -1 },
+  { "Flaring 3",                "flaringtype3.frag.glsl",      -1, -1, -1, -1 },
+  { "Flaring 4",                "flaringtype4.frag.glsl",      -1, -1, -1, -1 },
+  { "Flaring 5",                "flaringtype5.frag.glsl",      -1, -1, -1, -1 },
+  { "Interstellar",             "stellar.frag.glsl",           -1, -1, -1, -1 },
+  { "Interweaving Sine bands",  "sinebands.frag.glsl",         -1, -1, -1, -1 },
+  { "Julia Trap",               "juliatrap.frag.glsl",         -1, -1, -1, -1 },
+  { "Layers Of Plasma",         "layersplasma.frag.glsl",      -1, -1, -1, -1 },
+  { "Liquid Spectrum",          "liquidspectrum.frag.glsl",    -1, -1, -1, -1 },
+  { "Noise Animation Electric", "noiseanimelectric.frag.glsl", -1, -1, -1, -1 },
+  { "Noise Animation Flow",     "noiseanimflow.frag.glsl",     -1, -1, -1, -1 },
+  { "Noise Animation Lava",     "noiseanimlava.frag.glsl",     -1, -1, -1, -1 },
+  { "Overly Satisfying",        "overlysatisfying.frag.glsl",  -1, -1, -1, -1 },
+  { "Plasma Circles",           "plasmacircles.frag.glsl",     -1, -1, -1, -1 },
+  { "Plasma Triangles",         "plasmatriangle.frag.glsl",    -1, -1, -1, -1 },
+  { "Plas.mAtrix. Spin",        "plasmatrixspin.frag.glsl",    -1, -1, -1, -1 },
+  { "Pixellated Plasma",        "pixellated.frag.glsl",        -1, -1, -1, -1 },
+  { "Silexarst Creation",       "silexarst.frag.glsl",         -1, -1, -1, -1 },
+  { "Sky at Night",             "skyatnight.frag.glsl",        -1, -1, -1, -1 },
+  { "Stars Background",         "starsbackground.frag.glsl",   -1, -1, -1, -1 },
+  { "Vector Field",             "vectorfield.frag.glsl",       -1, -1, -1, -1 },
+  { "Venus",                    "venus.frag.glsl",             -1, -1, -1, -1 },
+  { "Warp",                     "warp.frag.glsl",              99, -1, -1, -1 },
+  { "Watch It Burn",            "watchitburn.frag.glsl",       -1, -1, -1, -1 },
+  { "Water Caustic",            "watercaustic.frag.glsl",      -1, -1, -1, -1 },
+  { "Worley Noise Waters",      "worleynoisewaters.frag.glsl"  -1, -1, -1, -1 },
+  //"balloffire.frag.glsl",
+  //"noiseanimwatery.frag.glsl",
+  //"tweets.frag.glsl",
+  //"wiggly.frag.glsl",
+};
+
+/*/ TODO read from filesystem
 const char *g_filePresets[] = {
   "blobandscsanline.glsl",
   "blobs.frag.glsl",
@@ -96,7 +148,7 @@ const char *g_filePresets[] = {
   //"noiseanimwatery.frag.glsl",
   //"tweets.frag.glsl",
   //"wiggly.frag.glsl",
-};
+};*/
 
 ID3D11Device*             g_pDevice      = nullptr;
 ID3D11DeviceContext*      g_pContext     = nullptr;
@@ -105,12 +157,14 @@ ID3D11Buffer*             g_pCBParams    = nullptr;
 ID3D11Buffer*             g_pVBuffer     = nullptr;
 ID3D11VertexShader*       g_pVShader     = nullptr;
 ID3D11PixelShader*        g_pPShader     = nullptr;
-ID3D11Texture2D*          g_pChannel[4]        = { nullptr, nullptr, nullptr, nullptr };
 ID3D11ShaderResourceView* g_pChannelView[4]    = { nullptr, nullptr, nullptr, nullptr };
 ID3D11SamplerState*       g_pChannelSampler[4] = { nullptr, nullptr, nullptr, nullptr };
+ID3D11ShaderResourceView* g_pNoiseView   = nullptr;
+ID3D11ShaderResourceView* g_pBackBuffer  = nullptr;
+
 Params                    g_cbParams;
 bool                      g_bInitialized  = false;
-int                       g_numberPresets = ARRAYSIZE(g_filePresets);
+int                       g_numberPresets = g_presets.size();
 int                       g_currentPreset = 0;
 int                       g_iWidth;
 int                       g_iHeight;
@@ -165,6 +219,9 @@ std::string fsHeader = SHADER_SOURCE(
 #define vec2 float2\n
 #define vec3 float3\n
 #define vec4 float4\n
+#define ivec2 int2\n
+#define ivec3 int3\n
+#define ivec4 int4\n
 #define mat2 float2x2\n
 #define mat3 float3x3\n
 #define mat4 float4x4\n
@@ -254,7 +311,7 @@ std::string fsFooter = SHADER_SOURCE(
     fragCoord.x *= (iResolution.x - 0.5);
     fragCoord.y *= (iResolution.y - 0.5);
     mainImage(color, fragCoord);
-    //color.w = 1.0;\n"
+    color.w = 1.0;
   }
 );
 
@@ -360,17 +417,18 @@ HRESULT InitDXStuff(ID3D11DeviceContext* pContex)
   sampDesc.MaxLOD = D3D11_FLOAT32_MAX;
   g_pDevice->CreateSamplerState(&sampDesc, &g_pChannelSampler[0]);
 
+  ID3D11DeviceContext* pCtx = nullptr;
+  g_pDevice->GetImmediateContext(&pCtx);
+
+  ID3D11Texture2D* pNoise = nullptr;
   int size = 256, zoom_factor = 1;
-  createTexture(DXGI_FORMAT_B8G8R8A8_UNORM, size, size, nullptr, 0, &g_pChannel[0], &g_pChannelView[0]);
+  createTexture(DXGI_FORMAT_B8G8R8A8_UNORM, size, size, nullptr, 0, &pNoise, &g_pNoiseView);
 
-  // generate noise texture from MilkDrop
-  if (g_pChannel[0])
+  // generate noise texture (from MilkDrop)
+  if (pNoise)
   {
-    ID3D11DeviceContext* pCtx = nullptr;
-    g_pDevice->GetImmediateContext(&pCtx);
-
     D3D11_MAPPED_SUBRESOURCE r;
-    if (FAILED(hr = pCtx->Map(g_pChannel[0], 0, D3D11_MAP_WRITE_DISCARD, 0, &r)))
+    if (FAILED(hr = pCtx->Map(pNoise, 0, D3D11_MAP_WRITE_DISCARD, 0, &r)))
     {
       SAFE_RELEASE(pCtx);
       return hr;
@@ -445,8 +503,53 @@ HRESULT InitDXStuff(ID3D11DeviceContext* pContex)
           }
     }
 
-    pCtx->Unmap(g_pChannel[0], 0);
+    pCtx->Unmap(pNoise, 0);
+    pNoise->Release();
   }
+
+  // get current backbuffer view
+  ID3D11RenderTargetView* pRTView = nullptr;
+  g_pContext->OMGetRenderTargets(1, &pRTView, nullptr);
+  if (pRTView != nullptr)
+  {
+    ID3D11Resource* pResource = nullptr;
+    pRTView->GetResource(&pResource);
+    pRTView->Release();
+
+    if (pResource == nullptr)
+      return E_FAIL;
+
+    ID3D11Texture2D* pRTTexture = nullptr;
+    hr = pResource->QueryInterface(__uuidof(ID3D11Texture2D), reinterpret_cast<void**>(&pRTTexture));
+    if (FAILED(hr))
+    {
+      pResource->Release();
+      return hr;
+    }
+
+    D3D11_TEXTURE2D_DESC texDesc;
+    pRTTexture->GetDesc(&texDesc);
+    texDesc.BindFlags = D3D11_BIND_SHADER_RESOURCE;
+    pRTTexture->Release();
+
+    ID3D11Texture2D* pCopyTexture = nullptr;
+    hr = g_pDevice->CreateTexture2D(&texDesc, nullptr, &pCopyTexture);
+    if (FAILED(hr))
+    {
+      pResource->Release();
+      return hr;
+    }
+
+    pCtx->CopyResource(pCopyTexture, pResource);
+    pResource->Release();
+
+    CD3D11_SHADER_RESOURCE_VIEW_DESC srvDesc(pCopyTexture, D3D11_SRV_DIMENSION_TEXTURE2D);
+    hr = g_pDevice->CreateShaderResourceView(pCopyTexture, &srvDesc, &g_pBackBuffer);
+
+    pCopyTexture->Release();
+  }
+
+  SAFE_RELEASE(pCtx);
 
   return hr;
 }
@@ -494,12 +597,11 @@ HRESULT createPixelShader(const std::string &file, ID3D11PixelShader** ppPShader
 void unloadPreset()
 {
   SAFE_RELEASE(g_pPShader);
-  for (size_t i = 1; i < ARRAYSIZE(g_pChannel); i++)
-    if (g_pChannel[i])
+  for (size_t i = 1; i < ARRAYSIZE(g_pChannelView); i++)
+    if (g_pChannelView[i])
     {
       SAFE_RELEASE(g_pChannelSampler[i]);
       SAFE_RELEASE(g_pChannelView[i]);
-      SAFE_RELEASE(g_pChannel[i]);
     }
 }
 
@@ -509,9 +611,26 @@ void loadPreset(int number)
   {
     g_currentPreset = number;
     unloadPreset();
-    if (FAILED(createPixelShader(g_filePresets[g_currentPreset], &g_pPShader)))
+    if (FAILED(createPixelShader(g_presets[g_currentPreset].file, &g_pPShader)))
     {
       // TODO fallback to "default" shader
+    }
+
+    if (g_presets[g_currentPreset].channel[0] == -1)
+      g_pChannelView[0] = g_pNoiseView;
+    else if (g_presets[g_currentPreset].channel[0] == 99)
+      g_pChannelView[0] = g_pBackBuffer;
+    else
+    {
+      // TODO load texture
+    }
+
+    for (size_t i = 1; i < ARRAYSIZE(g_pChannelView); ++i)
+    {
+      if (g_presets[g_currentPreset].channel[i] != -1)
+      {
+        // TODO load texture
+      }
     }
   }
 }
@@ -537,15 +656,16 @@ extern "C" ADDON_STATUS ADDON_Create(void* hdl, void* props)
   if (!g_bInitialized)
   {
     srand(time(nullptr));
-    loadPreset(rand() % g_numberPresets);
+    //loadPreset(27/*rand() % g_numberPresets*/);
     g_bInitialized = true;
   }
 
-  return ADDON_STATUS_OK;
+  return ADDON_STATUS_NEED_SETTINGS;
 }
 
 extern "C" void Start()
 {
+  loadPreset(g_currentPreset < 0 ? (rand() % g_numberPresets) : g_currentPreset);
 }
 
 extern "C" void Render()
@@ -604,8 +724,8 @@ extern "C" void ADDON_Stop()
   unloadPreset();
 
   SAFE_RELEASE(g_pChannelSampler[0]);
-  SAFE_RELEASE(g_pChannelView[0]);
-  SAFE_RELEASE(g_pChannel[0]);
+  SAFE_RELEASE(g_pNoiseView);
+  SAFE_RELEASE(g_pBackBuffer);
 
   SAFE_RELEASE(g_pDevice);
   SAFE_RELEASE(g_pInputLayout);
@@ -626,7 +746,7 @@ ADDON_STATUS ADDON_GetStatus()
 
 bool ADDON_HasSettings()
 {
-  return false;
+  return true;
 }
 
 unsigned int ADDON_GetSettings(ADDON_StructSetting ***sSet)
@@ -636,6 +756,13 @@ unsigned int ADDON_GetSettings(ADDON_StructSetting ***sSet)
 
 ADDON_STATUS ADDON_SetSetting(const char *strSetting, const void *value)
 {
+  if (!strSetting || !value)
+    return ADDON_STATUS_UNKNOWN;
+
+  unsigned int c = *(unsigned int*)value;
+  if (strcmp(strSetting, "preset") == 0 && c < g_presets.size() + 1)
+    g_currentPreset = c - 1;
+
   return ADDON_STATUS_OK;
 }
 
