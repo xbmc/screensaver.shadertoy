@@ -119,38 +119,6 @@ const std::vector<Preset> g_presets =
   //"wiggly.frag.glsl",
 };
 
-/*/ TODO read from filesystem
-const char *g_filePresets[] = {
-  "blobandscsanline.glsl",
-  "blobs.frag.glsl",
-  "bluefire.frag.glsl",
-  "dancefloor.frag.glsl",
-  "ether.frag.glsl",
-  "fire.frag.glsl",
-  "flaringtype1.frag.glsl",
-  "flaringtype2.frag.glsl",
-  "flaringtype3.frag.glsl",
-  "flaringtype4.frag.glsl",
-  "flaringtype5.frag.glsl",
-  "noiseanimelectric.frag.glsl",
-  "noiseanimflow.frag.glsl",
-  "noiseanimlava.frag.glsl",
-  "overlysatisfying.frag.glsl",
-  "plasmatriangle.frag.glsl",
-  "silexarst.frag.glsl",
-  "skyatnight.frag.glsl",
-  "starsbackground.frag.glsl",
-  "vectorfield.frag.glsl",
-  "venus.frag.glsl",
-  "watchitburn.frag.glsl",
-  "watercaustic.frag.glsl",
-  "worleynoisewaters.frag.glsl"
-  //"balloffire.frag.glsl",
-  //"noiseanimwatery.frag.glsl",
-  //"tweets.frag.glsl",
-  //"wiggly.frag.glsl",
-};*/
-
 ID3D11Device*             g_pDevice      = nullptr;
 ID3D11DeviceContext*      g_pContext     = nullptr;
 ID3D11InputLayout*        g_pInputLayout = nullptr;
