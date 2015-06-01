@@ -141,7 +141,7 @@ msgid "Sky at Night"
 msgstr ""
 
 msgctxt "#30030"
-msgid "Stars Background"
+msgid "Star Tunnel"
 msgstr ""
 
 msgctxt "#30031"

@@ -106,7 +106,7 @@ const std::vector<Preset> g_presets =
   { "Silexarst Creation",       "silexarst.frag.glsl",         -1, -1, -1, -1 },
   { "Sky at Night",             "skyatnight.frag.glsl",        -1, -1, -1, -1 },
   { "Sphere",                   "sphere.frag.glsl",            99, -1, -1, -1 },
-  { "Stars Background",         "starsbackground.frag.glsl",   -1, -1, -1, -1 },
+  { "Star Tunnel",              "startunnel.frag.glsl",        -1, -1, -1, -1 },
   { "Vector Field",             "vectorfield.frag.glsl",       -1, -1, -1, -1 },
   { "Venus",                    "venus.frag.glsl",             -1, -1, -1, -1 },
   { "Warp",                     "warp.frag.glsl",              99, -1, -1, -1 },
