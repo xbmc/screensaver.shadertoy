@@ -21,7 +21,7 @@
 
 #pragma comment(lib, "d3dcompiler.lib")
 
-#include "kodi/xbmc_scr_dll.h"
+#include "xbmc_scr_dll.h"
 #include "platform/util/timeutils.h"
 #include <d3d11.h>
 #include <DirectXMath.h>
