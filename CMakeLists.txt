@@ -7,8 +7,9 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR})
 enable_language(CXX)
 
 find_package(kodi REQUIRED)
+find_package(platform REQUIRED)
 
-include_directories(${KODI_INCLUDE_DIR})
+include_directories(${KODI_INCLUDE_DIR} ${platform_INCLUDE_DIRS})
 
 set(SHADERTOY_SOURCES src/toys.cpp)
 
