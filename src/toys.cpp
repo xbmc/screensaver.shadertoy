@@ -731,9 +731,12 @@ ADDON_STATUS ADDON_SetSetting(const char *strSetting, const void *value)
   if (!strSetting || !value)
     return ADDON_STATUS_UNKNOWN;
 
-  unsigned int c = *(unsigned int*)value;
   if (strcmp(strSetting, "preset") == 0 && c < g_presets.size() + 1)
+  {
+    int c = atoi((char*)value);
+    if (c < 0) c = 0;
     g_currentPreset = c - 1;
+  }
 
   return ADDON_STATUS_OK;
 }
