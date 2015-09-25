@@ -337,6 +337,9 @@ HRESULT InitDXStuff(ID3D11DeviceContext* pContex)
   g_pContext = pContex;
   g_pContext->GetDevice(&g_pDevice);
 
+  if (g_pDevice->GetFeatureLevel() < D3D_FEATURE_LEVEL_9_3)
+    return S_FALSE;
+
   ID3DBlob* pVSBlob = nullptr;
   if (SUCCEEDED(compileShader(VERTEX_SHADER, vsSource.c_str(), vsSource.size(), &pVSBlob)))
   {
