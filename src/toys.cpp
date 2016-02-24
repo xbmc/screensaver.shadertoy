@@ -22,7 +22,7 @@
 #pragma comment(lib, "d3dcompiler.lib")
 
 #include "xbmc_scr_dll.h"
-#include "platform/util/timeutils.h"
+#include <p8-platform/util/timeutils.h>
 #include <d3d11.h>
 #include <DirectXMath.h>
 #include <d3dcompiler.h>
@@ -649,7 +649,7 @@ extern "C" void Render()
     g_pContext->PSSetShaderResources(0, ARRAYSIZE(g_pChannelView), g_pChannelView);
     g_pContext->PSSetSamplers(0, ARRAYSIZE(g_pChannelSampler), g_pChannelSampler);
 
-    float t = (float)PLATFORM::GetTimeMs() / 1000.0f;
+    float t = (float)P8PLATFORM::GetTimeMs() / 1000.0f;
     time_t now = time(NULL);
     tm *ltm = localtime(&now);
     float year = (float)(1900 + ltm->tm_year);
