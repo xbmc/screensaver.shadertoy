@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="screensaver.shadertoy"
-  version="1.0.1"
+  version="1.1.0"
   name="Shadertoy Screensavers"
   provider-name="afedchin">
   <requires>
@@ -9,10 +9,10 @@
   </requires>
   <extension
     point="xbmc.ui.screensaver"
-    library_windx="screensaver.shadertoy.dll"/>
+    library_@PLATFORM@="@LIBRARY_FILENAME@"/>
   <extension point="xbmc.addon.metadata">
     <summary>Random screensavers from Shadertoy</summary>
     <description>Random screensavers from Shadertoy</description>
-    <platform>windx</platform>
+    <platform>@PLATFORM@</platform>
   </extension>
 </addon>
