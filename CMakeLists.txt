@@ -13,6 +13,8 @@ include_directories(${KODI_INCLUDE_DIR} ${p8-platform_INCLUDE_DIRS})
 
 set(SHADERTOY_SOURCES src/toys.cpp)
 
+set(SHADERTOY_HEADERS src/toys.h)
+
 set(DEPLIBS)
 
 build_addon(screensaver.shadertoy SHADERTOY DEPLIBS)
