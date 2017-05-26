@@ -21,7 +21,7 @@
 
 #pragma comment(lib, "d3dcompiler.lib")
 
-#include "xbmc_scr_dll.h"
+#include <kodi/addon-instance/Screensaver.h>
 #include <p8-platform/util/timeutils.h>
 #include <d3d11.h>
 #include <DirectXMath.h>
@@ -132,7 +132,6 @@ ID3D11ShaderResourceView* g_pNoiseView   = nullptr;
 ID3D11ShaderResourceView* g_pBackBuffer  = nullptr;
 
 Params                    g_cbParams;
-bool                      g_bInitialized  = false;
 int                       g_numberPresets = g_presets.size();
 int                       g_currentPreset = 0;
 int                       g_iWidth;
@@ -607,84 +606,97 @@ void loadPreset(int number)
   }
 }
 
+
+class CScreensaverToys
+  : public kodi::addon::CAddonBase,
+    public kodi::addon::CInstanceScreensaver
+{
+public:
+  CScreensaverToys();
+
+  virtual bool Start() override;
+  virtual void Stop() override;
+  virtual void Render() override;
+
+private:
+};
+
 ////////////////////////////////////////////////////////////////////////////
 // Kodi has loaded us into memory, we should set our core values
 // here and load any settings we may have from our config file
 //
-extern "C" ADDON_STATUS ADDON_Create(void* hdl, void* props)
+CScreensaverToys::CScreensaverToys()
 {
-  if (!props)
-    return ADDON_STATUS_UNKNOWN;
 
-  AddonProps_Screensaver* scrprops = (AddonProps_Screensaver*)props;
-
-  g_iWidth = scrprops->width;
-  g_iHeight = scrprops->height;
-  g_pathPresets = scrprops->presets;
+  g_iWidth = Width();
+  g_iHeight = Height();
+  g_pathPresets = Presets();
 
   if (FAILED(InitDXStuff(reinterpret_cast<ID3D11DeviceContext*>(scrprops->device))))
-    return ADDON_STATUS_PERMANENT_FAILURE;
-
-  if (!g_bInitialized)
   {
-    srand(time(nullptr));
-    //loadPreset(27/*rand() % g_numberPresets*/);
-    g_bInitialized = true;
+    kodi::Log(ADDON_LOG_ERROR, "Failed to init DirectX Stuff");
+    return;
   }
 
-  return ADDON_STATUS_NEED_SETTINGS;
+  int c = kodi::GetSettingInt("preset");
+  if (c < 0) c = 0;
+  if (c > g_presets.size()) c = g_presets.size();
+  g_currentPreset = c - 1;
+
+  srand(time(nullptr));
+  //loadPreset(27/*rand() % g_numberPresets*/); 
 }
 
-extern "C" void Start()
+bool CScreensaverToys::Start()
 {
   loadPreset(g_currentPreset < 0 ? (rand() % g_numberPresets) : g_currentPreset);
+  return true;
 }
 
-extern "C" void Render()
+void CScreensaverToys::Render()
 {
-  if (g_bInitialized) 
+  g_pContext->VSSetShader(g_pVShader, nullptr, 0);
+  g_pContext->PSSetShader(g_pPShader, nullptr, 0);
+  g_pContext->PSSetShaderResources(0, ARRAYSIZE(g_pChannelView), g_pChannelView);
+  g_pContext->PSSetSamplers(0, ARRAYSIZE(g_pChannelSampler), g_pChannelSampler);
+
+  float t = (float)P8PLATFORM::GetTimeMs() / 1000.0f;
+  time_t now = time(NULL);
+  tm *ltm = localtime(&now);
+  float year = (float)(1900 + ltm->tm_year);
+  float month = (float)ltm->tm_mon;
+  float day = (float)ltm->tm_mday;
+  float sec = (float)(ltm->tm_hour * 3600 + ltm->tm_min * 60 + ltm->tm_sec);
+
+  g_cbParams.iResolution = XMFLOAT3((float)g_iWidth, (float)g_iHeight, (float)g_iWidth/(float)g_iHeight);
+  g_cbParams.iGlobalTime = t;
+  g_cbParams.iSampleRate = 0;
+  g_cbParams.iChannelTime = XMFLOAT4(t, t, t, t);
+  g_cbParams.iDate = XMFLOAT4(year, month, day, sec);
+
+  D3D11_MAPPED_SUBRESOURCE res = {};
+  if (SUCCEEDED(g_pContext->Map(g_pCBParams, 0, D3D11_MAP_WRITE_DISCARD, 0, &res)))
   {
-    g_pContext->VSSetShader(g_pVShader, nullptr, 0);
-    g_pContext->PSSetShader(g_pPShader, nullptr, 0);
-    g_pContext->PSSetShaderResources(0, ARRAYSIZE(g_pChannelView), g_pChannelView);
-    g_pContext->PSSetSamplers(0, ARRAYSIZE(g_pChannelSampler), g_pChannelSampler);
-
-    float t = (float)P8PLATFORM::GetTimeMs() / 1000.0f;
-    time_t now = time(NULL);
-    tm *ltm = localtime(&now);
-    float year = (float)(1900 + ltm->tm_year);
-    float month = (float)ltm->tm_mon;
-    float day = (float)ltm->tm_mday;
-    float sec = (float)(ltm->tm_hour * 3600 + ltm->tm_min * 60 + ltm->tm_sec);
-
-    g_cbParams.iResolution = XMFLOAT3((float)g_iWidth, (float)g_iHeight, (float)g_iWidth/(float)g_iHeight);
-    g_cbParams.iGlobalTime = t;
-    g_cbParams.iSampleRate = 0;
-    g_cbParams.iChannelTime = XMFLOAT4(t, t, t, t);
-    g_cbParams.iDate = XMFLOAT4(year, month, day, sec);
-
-    D3D11_MAPPED_SUBRESOURCE res = {};
-    if (SUCCEEDED(g_pContext->Map(g_pCBParams, 0, D3D11_MAP_WRITE_DISCARD, 0, &res)))
-    {
-      memcpy(res.pData, &g_cbParams, sizeof(Params));
-      g_pContext->Unmap(g_pCBParams, 0);
-    }
-    g_pContext->PSSetConstantBuffers(0, 1, &g_pCBParams);
-
-    g_pContext->IASetInputLayout(g_pInputLayout);
-    g_pContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-    UINT strides = sizeof(MYVERTEX), offsets = 0;
-    g_pContext->IASetVertexBuffers(0, 1, &g_pVBuffer, &strides, &offsets);
-
-    g_pContext->Draw(4, 0);
-
-    g_pContext->PSSetShader(nullptr, nullptr, 0);
-    g_pContext->VSSetShader(nullptr, nullptr, 0);
+    memcpy(res.pData, &g_cbParams, sizeof(Params));
+    g_pContext->Unmap(g_pCBParams, 0);
   }
+  g_pContext->PSSetConstantBuffers(0, 1, &g_pCBParams);
+
+  g_pContext->IASetInputLayout(g_pInputLayout);
+  g_pContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+  UINT strides = sizeof(MYVERTEX), offsets = 0;
+  g_pContext->IASetVertexBuffers(0, 1, &g_pVBuffer, &strides, &offsets);
+
+  g_pContext->Draw(4, 0);
+
+  g_pContext->PSSetShader(nullptr, nullptr, 0);
+  g_pContext->VSSetShader(nullptr, nullptr, 0);
 }
 
-
-extern "C" void Stop()
+// Kodi tells us to stop the screensaver
+// we should free any memory and release
+// any resources we have created.
+void CScreensaverToys::Stop()
 {
   unloadPreset();
 
@@ -700,27 +712,4 @@ extern "C" void Stop()
   SAFE_RELEASE(g_pPShader);
 }
 
-void ADDON_Destroy()
-{
-}
-
-ADDON_STATUS ADDON_GetStatus()
-{
-  return ADDON_STATUS_OK;
-}
-
-ADDON_STATUS ADDON_SetSetting(const char *strSetting, const void *value)
-{
-  if (!strSetting || !value)
-    return ADDON_STATUS_UNKNOWN;
-
-  if (strcmp(strSetting, "preset") == 0)
-  {
-    int c = atoi((char*)value);
-    if (c < 0) c = 0;
-    if (c > g_presets.size()) c = g_presets.size();
-    g_currentPreset = c - 1;
-  }
-
-  return ADDON_STATUS_OK;
-}
+ADDONCREATOR(CScreensaverToys);
