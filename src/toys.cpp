@@ -632,7 +632,7 @@ CScreensaverToys::CScreensaverToys()
   g_iHeight = Height();
   g_pathPresets = Presets();
 
-  if (FAILED(InitDXStuff(reinterpret_cast<ID3D11DeviceContext*>(scrprops->device))))
+  if (FAILED(InitDXStuff(reinterpret_cast<ID3D11DeviceContext*>(Device()))))
   {
     kodi::Log(ADDON_LOG_ERROR, "Failed to init DirectX Stuff");
     return;
