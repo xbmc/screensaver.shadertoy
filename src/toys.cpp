@@ -19,7 +19,9 @@
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 */
 
-#pragma comment(lib, "d3dcompiler.lib")
+#if !defined(WINAPI_FAMILY) || (WINAPI_FAMILY == WINAPI_FAMILY_APP)
+#  pragma comment(lib, "d3dcompiler.lib")
+#endif
 
 #include <kodi/addon-instance/Screensaver.h>
 #include <p8-platform/util/timeutils.h>
@@ -535,7 +537,7 @@ HRESULT createPixelShader(const std::string &file, ID3D11PixelShader** ppPShader
   std::string fullPath = ss.str();
 
   std::string msg = "Debug Print: Opening shader: " + fullPath + "\n";
-  OutputDebugString(msg.c_str());
+  OutputDebugStringA(msg.c_str());
 
   FILE* f = fopen(fullPath.c_str(), "r");
   if (f != NULL)
