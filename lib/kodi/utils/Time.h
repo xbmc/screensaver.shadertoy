@@ -11,7 +11,8 @@
 #if defined(TARGET_DARWIN)
 #include <mach/mach_time.h>
 #include <CoreVideo/CVHostTime.h>
-#elif defined(__WINDOWS__)
+#elif defined(TARGET_WINDOWS)
+#include <Windows.h>
 #include <time.h>
 #else
 #include <time.h>
@@ -42,9 +43,9 @@ namespace kodi
     ///
     inline double GetTimeMs()
     {
-    #if defined(__APPLE__)
+    #if defined(TARGET_DARWIN)
       return (double) (CVGetCurrentHostTime() / (double)(CVGetHostClockFrequency() * 0.001));
-    #elif defined(__WINDOWS__)
+    #elif defined(TARGET_WINDOWS)
       LARGE_INTEGER tickPerSecond;
       LARGE_INTEGER tick;
       if (QueryPerformanceFrequency(&tickPerSecond))
