@@ -1,7 +1,16 @@
 # build artifacts
 build/
-obj-x86_64-linux-gnu/
 screensaver.*/addon.xml
+
+# Debian build files
+debian/changelog
+debian/files
+debian/*.log
+debian/*.substvars
+debian/.debhelper/
+debian/tmp/
+debian/kodi-screensaver-*/
+obj-x86_64-linux-gnu/
 
 # commonly used editors
 # vim
@@ -25,6 +34,3 @@ screensaver.*/addon.xml
 
 # clion
 .idea/
-
-# KDev
-*.kdev4
