@@ -1,3 +1,128 @@
-<settings>
-  <setting id="preset" label="30000" type="select" lvalues="30100|30001|30002|30003|30004|30005|30006|30007|30008|30009|30010|30011|30012|30013|30014|30015|30016|30017|30018|30019|30020|30021|30022|30023|30024|30025|30026|30027|30028|30029|30037|30030|30031|30032|30033|30034|30035|30036" default="0"/>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings version="1">
+  <section id="screensaver.shadertoy">
+    <category id="general" label="30101">
+      <group id="1">
+        <setting id="preset" type="integer" label="30000">
+          <default>0</default>
+          <constraints>
+            <options>
+              <option label="30100">0</option>
+              <option label="30001">1</option>
+              <option label="30002">2</option>
+              <option label="30003">3</option>
+              <option label="30004">4</option>
+              <option label="30005">5</option>
+              <option label="30006">6</option>
+              <option label="30007">7</option>
+              <option label="30008">8</option>
+              <option label="30009">9</option>
+              <option label="30010">10</option>
+              <option label="30011">11</option>
+              <option label="30012">12</option>
+              <option label="30013">13</option>
+              <option label="30014">14</option>
+              <option label="30015">15</option>
+              <option label="30016">16</option>
+              <option label="30017">17</option>
+              <option label="30018">18</option>
+              <option label="30019">19</option>
+              <option label="30020">20</option>
+              <option label="30021">21</option>
+              <option label="30022">22</option>
+              <option label="30038">23</option>
+              <option label="30023">24</option>
+              <option label="30024">25</option>
+              <option label="30025">26</option>
+              <option label="30026">27</option>
+              <option label="30027">28</option>
+              <option label="30028">29</option>
+              <option label="30029">30</option>
+              <option label="30037">31</option>
+              <option label="30030">32</option>
+              <option label="30031">33</option>
+              <option label="30032">34</option>
+              <option label="30033">35</option>
+              <option label="30034">36</option>
+              <option label="30035">37</option>
+              <option label="30036">38</option>
+            </options>
+          </constraints>
+          <dependencies>
+            <dependency type="enable" setting="ownshader" operator="is">false</dependency>
+          </dependencies>
+          <control type="list" format="string"/>
+        </setting>
+      </group>
+    </category>
+    <category id="advanced" label="30102">
+      <group id="1" label="30103">
+        <setting id="ownshader" type="boolean" label="30200">
+          <default>false</default>
+          <control type="toggle" />
+        </setting>
+        <setting id="shader" type="path" label="30201">
+          <default></default>
+          <dependencies>
+            <dependency type="enable" setting="ownshader" operator="is">true</dependency>
+          </dependencies>
+          <constraints>
+            <allowempty>true</allowempty>
+            <masking>*.glsl</masking>
+          </constraints>
+          <control type="button" format="file">
+            <heading>30201</heading>
+          </control>
+        </setting>
+        <setting id="texture0" type="path" label="30202">
+          <default></default>
+          <dependencies>
+            <dependency type="enable" setting="ownshader" operator="is">true</dependency>
+          </dependencies>
+          <constraints>
+            <allowempty>true</allowempty>
+          </constraints>
+          <control type="button" format="file">
+            <heading>30202</heading>
+          </control>
+        </setting>
+        <setting id="texture1" type="path" label="30203">
+          <default></default>
+          <dependencies>
+            <dependency type="enable" setting="ownshader" operator="is">true</dependency>
+          </dependencies>
+          <constraints>
+            <allowempty>true</allowempty>
+          </constraints>
+          <control type="button" format="file">
+            <heading>30203</heading>
+          </control>
+        </setting>
+        <setting id="texture2" type="path" label="30204">
+          <default></default>
+          <dependencies>
+            <dependency type="enable" setting="ownshader" operator="is">true</dependency>
+          </dependencies>
+          <constraints>
+            <allowempty>true</allowempty>
+          </constraints>
+          <control type="button" format="file">
+            <heading>30204</heading>
+          </control>
+        </setting>
+        <setting id="texture3" type="path" label="30205">
+          <default></default>
+          <dependencies>
+            <dependency type="enable" setting="ownshader" operator="is">true</dependency>
+          </dependencies>
+          <constraints>
+            <allowempty>true</allowempty>
+          </constraints>
+          <control type="button" format="file">
+            <heading>30205</heading>
+          </control>
+        </setting>
+      </group>
+    </category>
+  </section>
 </settings>

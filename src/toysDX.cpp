@@ -24,7 +24,7 @@
 #endif
 
 #include <kodi/addon-instance/Screensaver.h>
-#include <p8-platform/util/timeutils.h>
+#include <kodi/utils/Time.h>
 #include <d3d11.h>
 #include <DirectXMath.h>
 #include <d3dcompiler.h>
@@ -100,6 +100,7 @@ const std::vector<Preset> g_presets =
   { "Noise Animation Electric", "noiseanimelectric.frag.glsl", -1, -1, -1, -1 },
   { "Noise Animation Flow",     "noiseanimflow.frag.glsl",     -1, -1, -1, -1 },
   { "Noise Animation Lava",     "noiseanimlava.frag.glsl",     -1, -1, -1, -1 },
+  { "Noise Animation Watery",   "noiseanimwatery.frag.glsl",   -1, -1, -1, -1 },
   { "Overly Satisfying",        "overlysatisfying.frag.glsl",  -1, -1, -1, -1 },
   { "Plasma Circles",           "plasmacircles.frag.glsl",     -1, -1, -1, -1 },
   { "Plasma Triangles",         "plasmatriangle.frag.glsl",    -1, -1, -1, -1 },
@@ -179,9 +180,9 @@ DWORD dwCubicInterpolate(DWORD y0, DWORD y1, DWORD y2, DWORD y3, float t)
 const std::string vsSource = SHADER_SOURCE(
   void main(in  float4 pos   : POSITION,  in float2      uv : TEXCOORD0,
             out float2 outUV : TEXCOORD0, out float4 outPos : SV_POSITION)
-  { 
-    outPos = pos; 
-    outUV = uv; 
+  {
+    outPos = pos;
+    outUV = uv;
   }
 );
 
@@ -272,6 +273,7 @@ SamplerState iChannel1Samp : register(s1);
 SamplerState iChannel2Samp : register(s2);
 SamplerState iChannel3Samp : register(s3);
 \n#define texture2D(x, uv) (##x##.Sample(##x##Samp, uv))\n
+\n#define texture(x, uv) (##x##.Sample(##x##Samp, uv))\n
 );
 
 std::string fsFooter = SHADER_SOURCE(
@@ -386,7 +388,7 @@ HRESULT InitDXStuff(ID3D11DeviceContext* pContex)
   sampDesc.AddressV = D3D11_TEXTURE_ADDRESS_MIRROR;
   sampDesc.AddressW = D3D11_TEXTURE_ADDRESS_MIRROR;
   sampDesc.ComparisonFunc = D3D11_COMPARISON_NEVER;
-  sampDesc.MinLOD = 0; 
+  sampDesc.MinLOD = 0;
   sampDesc.MaxLOD = D3D11_FLOAT32_MAX;
   g_pDevice->CreateSamplerState(&sampDesc, &g_pChannelSampler[0]);
 
@@ -406,7 +408,7 @@ HRESULT InitDXStuff(ID3D11DeviceContext* pContex)
       SAFE_RELEASE(pCtx);
       return hr;
     }
-    
+
     // write to the bits...
     DWORD* dst = (DWORD*)r.pData;
     int dwords_per_line = r.RowPitch / sizeof(DWORD);
@@ -646,7 +648,7 @@ CScreensaverToys::CScreensaverToys()
   g_currentPreset = c - 1;
 
   srand(time(nullptr));
-  //loadPreset(27/*rand() % g_numberPresets*/); 
+  //loadPreset(27/*rand() % g_numberPresets*/);
 }
 
 bool CScreensaverToys::Start()
@@ -662,7 +664,7 @@ void CScreensaverToys::Render()
   g_pContext->PSSetShaderResources(0, ARRAYSIZE(g_pChannelView), g_pChannelView);
   g_pContext->PSSetSamplers(0, ARRAYSIZE(g_pChannelSampler), g_pChannelSampler);
 
-  float t = (float)P8PLATFORM::GetTimeMs() / 1000.0f;
+  float t = kodi::time::GetTimeSec<float>();
   time_t now = time(NULL);
   tm *ltm = localtime(&now);
   float year = (float)(1900 + ltm->tm_year);

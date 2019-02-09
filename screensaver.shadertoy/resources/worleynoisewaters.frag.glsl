@@ -4,12 +4,12 @@
 
 //Calculate the squared length of a vector
 float length2(vec2 p){
-  return dot(p, p);
+  return dot(p,p);
 }
 
 //Generate some noise to scatter points.
 float noise(vec2 p){
-  return texture2D(iChannel0, p / 256.0).x;
+  return fract(sin(fract(sin(p.x) * (43.13311)) + p.y) * 31.0011);
 }
 
 float worley(vec2 p) {
@@ -29,20 +29,21 @@ float worley(vec2 p) {
 }
 
 float fworley(vec2 p) {
-  //Stack noise layers 
+  //Stack noise layers
   return sqrt(sqrt(sqrt(
-    worley(p*5.0 + 0.05*iGlobalTime) *
-    sqrt(worley(p * 50.0 + 0.12 + -0.1*iGlobalTime)) *
-    sqrt(sqrt(worley(p * -10.0 + 0.03*iGlobalTime))))));
+      worley(p*5.0 + 0.05*iTime) *
+      sqrt(worley(p * 50.0 + 0.12 + -0.1*iTime)) *
+      sqrt(sqrt(worley(p * -10.0 + 0.03*iTime))))));
 }
 
-void mainImage(out vec4 fragColor, in vec2 fragCoord)
+void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
   vec2 uv = fragCoord.xy / iResolution.xy;
   //Calculate an intensity
   float t = fworley(uv * iResolution.xy / 1500.0);
   //Add some gradient
-  t *= exp(-length2(abs(0.7*uv - 1.0)));
+  t*=exp(-length2(abs(0.7*uv - 1.0)));
   //Make it blue!
-  fragColor = vec4(t * vec3(0.1, 1.1*t, pow(t, 0.5 - t)), 1.0);
+  fragColor = vec4(t * vec3(0.1, 1.1*t, pow(t, 0.5-t)), 1.0);
 }
+

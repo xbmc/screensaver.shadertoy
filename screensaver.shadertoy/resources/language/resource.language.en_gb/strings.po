@@ -24,6 +24,22 @@ msgctxt "#30100"
 msgid "Random"
 msgstr ""
 
+msgctxt "#30101"
+msgid "General"
+msgstr ""
+
+msgctxt "#30102"
+msgid "Advanced"
+msgstr ""
+
+msgctxt "#30103"
+msgid "Use your own shader, e.g. from https://www.shadertoy.com"
+msgstr ""
+
+msgctxt "#30104"
+msgid "Selected shader code not found!"
+msgstr ""
+
 msgctxt "#30001"
 msgid "Ball"
 msgstr ""
@@ -101,15 +117,15 @@ msgid "Liquid Spectrum"
 msgstr ""
 
 msgctxt "#30020"
-msgid "Noise Animation Electric"
+msgid "Noise Animation - Electric"
 msgstr ""
 
 msgctxt "#30021"
-msgid "Noise Animation Flow"
+msgid "Noise Animation - Flow"
 msgstr ""
 
 msgctxt "#30022"
-msgid "Noise Animation Lava"
+msgid "Noise Animation - Lava"
 msgstr ""
 
 msgctxt "#30023"
@@ -170,4 +186,48 @@ msgstr ""
 
 msgctxt "#30037"
 msgid "Sphere"
+msgstr ""
+
+msgctxt "#30200"
+msgid "Choose one yourself"
+msgstr ""
+
+msgctxt "#30201"
+msgid "Shader"
+msgstr ""
+
+msgctxt "#30202"
+msgid "iChannel 1"
+msgstr ""
+
+msgctxt "#30203"
+msgid "iChannel 2"
+msgstr ""
+
+msgctxt "#30204"
+msgid "iChannel 3"
+msgstr ""
+
+msgctxt "#30205"
+msgid "iChannel 4"
+msgstr ""
+
+msgctxt "#30211"
+msgid "Shader as *.glsl"
+msgstr ""
+
+msgctxt "#30212"
+msgid "iChannel 1 as *.png"
+msgstr ""
+
+msgctxt "#30213"
+msgid "iChannel 2 as *.png"
+msgstr ""
+
+msgctxt "#30214"
+msgid "iChannel 3 as *.png"
+msgstr ""
+
+msgctxt "#30215"
+msgid "iChannel 4 as *.png"
 msgstr ""
