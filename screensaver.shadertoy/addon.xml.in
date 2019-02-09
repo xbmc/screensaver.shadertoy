@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="screensaver.shadertoy"
-  version="2.0.1"
+  version="3.0.0"
   name="Shadertoy Screensavers"
   provider-name="afedchin">
   <requires>@ADDON_DEPENDS@</requires>
@@ -10,7 +10,21 @@
     library_@PLATFORM@="@LIBRARY_FILENAME@"/>
   <extension point="xbmc.addon.metadata">
     <summary>Random screensavers from Shadertoy</summary>
-    <description>Random screensavers from Shadertoy</description>
+    <description>Use the best shaders in the world with Shadertoy and add them if you want.</description>
     <platform>@PLATFORM@</platform>
+    <assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.jpg</fanart>
+      <screenshot>screenshot-01.jpg</screenshot>
+      <screenshot>screenshot-02.jpg</screenshot>
+      <screenshot>screenshot-03.jpg</screenshot>
+      <screenshot>screenshot-04.jpg</screenshot>
+      <screenshot>screenshot-05.jpg</screenshot>
+      <screenshot>screenshot-06.jpg</screenshot>
+      <screenshot>screenshot-07.jpg</screenshot>
+      <screenshot>screenshot-08.jpg</screenshot>
+      <screenshot>screenshot-09.jpg</screenshot>
+      <screenshot>screenshot-10.jpg</screenshot>
+    </assets>
   </extension>
 </addon>
