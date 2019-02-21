@@ -9,8 +9,8 @@
     point="xbmc.ui.screensaver"
     library_@PLATFORM@="@LIBRARY_FILENAME@"/>
   <extension point="xbmc.addon.metadata">
-    <summary>Random screensavers from Shadertoy</summary>
-    <description>Random screensavers from Shadertoy</description>
+    <summary lang="en_GB">Random screensavers from Shadertoy</summary>
+    <description lang="en_GB">Random screensavers from Shadertoy</description>
     <platform>@PLATFORM@</platform>
   </extension>
 </addon>
