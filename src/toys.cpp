@@ -547,6 +547,8 @@ HRESULT createPixelShader(const std::string &file, ID3D11PixelShader** ppPShader
     source.resize(ftell(f));
     fseek(f, 0, SEEK_SET);
     size_t read = fread(&source[0], 1, source.size(), f);
+    // CRLF is replaced with LF by fread
+    source.resize(read);
     fclose(f);
 
     std::ostringstream ss;
