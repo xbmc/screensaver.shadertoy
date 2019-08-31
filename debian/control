@@ -1,0 +1,24 @@
+Source: kodi-screensaver-shadertoy
+Priority: extra
+Maintainer: Nobody <nobody@kodi.tv>
+Build-Depends: debhelper (>= 9.0.0), cmake, kodi-addon-dev,
+               libgles2-mesa-dev [arm64 armhf], libgl1-mesa-dev [i386 amd64],
+               libglm-dev
+Standards-Version: 4.1.2
+Section: libs
+Homepage: http://kodi.tv
+
+Package: kodi-screensaver-shadertoy
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Shadertoy screensaver for Kodi
+ Shadertoy screensaver for Kodi
+
+Package: kodi-screensaver-shadertoy-dbg
+Section: debug
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: debug symbols for Shadertoy screensaver for Kodi
+ debug symbols for Shadertoy screensaver for Kodi
+
