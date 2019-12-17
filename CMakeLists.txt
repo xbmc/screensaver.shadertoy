@@ -4,16 +4,34 @@ project(screensaver.shadertoy)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR})
 
 find_package(Kodi REQUIRED)
-find_package(p8-platform REQUIRED)
+find_package(glm REQUIRED)
 
-include_directories(${KODI_INCLUDE_DIR}/.. # Hack way with "/..", need bigger Kodi cmake rework to match right include ways
-                    ${p8-platform_INCLUDE_DIRS})
+if(NOT WIN32 AND (APP_RENDER_SYSTEM STREQUAL "gl" OR NOT APP_RENDER_SYSTEM))
+  find_package(OpenGl REQUIRED)
+  set(DEPLIBS ${OPENGL_LIBRARIES})
+  set(includes ${OPENGL_INCLUDE_DIR})
+  add_definitions(${OPENGL_DEFINITIONS})
+else()
+  find_package(OpenGLES REQUIRED)
+  set(DEPLIBS ${OPENGLES_LIBRARIES})
+  set(includes ${OPENGLES_INCLUDE_DIR})
+  add_definitions(${OPENGLES_DEFINITIONS})
+endif()
 
-set(SHADERTOY_SOURCES src/toys.cpp)
+include_directories(${GLM_INCLUDE_DIR}
+                    ${KODI_INCLUDE_DIR}/..) # Hack way with "/..", need bigger Kodi cmake rework to match right include ways
 
-set(SHADERTOY_HEADERS src/toys.h)
+if(CORE_SYSTEM_NAME STREQUAL osx OR
+   CORE_SYSTEM_NAME STREQUAL ios OR
+   CORE_SYSTEM_NAME STREQUAL darwin_embedded)
+  list(APPEND DEPLIBS "-framework CoreVideo")
+endif()
 
-set(DEPLIBS)
+set(SHADERTOY_SOURCES src/main.cpp
+                      src/lodepng.cpp)
+
+set(SHADERTOY_HEADERS src/main.h
+                      src/lodepng.h)
 
 build_addon(screensaver.shadertoy SHADERTOY DEPLIBS)
 

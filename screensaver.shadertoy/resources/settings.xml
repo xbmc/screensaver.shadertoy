@@ -84,8 +84,9 @@
           <constraints>
             <allowempty>true</allowempty>
           </constraints>
-          <control type="button" format="file">
+          <control type="button" format="image">
             <heading>30202</heading>
+            <masking>*.png</masking>
           </control>
         </setting>
         <setting id="texture1" type="path" label="30203">
@@ -95,8 +96,9 @@
           </dependencies>
           <constraints>
             <allowempty>true</allowempty>
+            <masking>*.png</masking>
           </constraints>
-          <control type="button" format="file">
+          <control type="button" format="image">
             <heading>30203</heading>
           </control>
         </setting>
@@ -107,8 +109,9 @@
           </dependencies>
           <constraints>
             <allowempty>true</allowempty>
+            <masking>*.png</masking>
           </constraints>
-          <control type="button" format="file">
+          <control type="button" format="image">
             <heading>30204</heading>
           </control>
         </setting>
@@ -119,8 +122,9 @@
           </dependencies>
           <constraints>
             <allowempty>true</allowempty>
+            <masking>*.png</masking>
           </constraints>
-          <control type="button" format="file">
+          <control type="button" format="image">
             <heading>30205</heading>
           </control>
         </setting>
