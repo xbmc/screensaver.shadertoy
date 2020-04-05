@@ -74,6 +74,7 @@ const std::vector<Preset> CScreensaverShadertoy::g_presets =
   { "Coloured Circles",           "colorcircles.frag.glsl",       { "",          "",             "",          "" } },
   { "Dot Dot Dot",                "dotdotdot.frag.glsl",          { "",          "",             "",          "" } },
   { "Fractal Tiling",             "fractaltiling.frag.glsl",      { "",          "",             "",          "" } },
+  { "Infinite Fall",              "infinitefall.frag.glsl",       { "tex12.png" ,"",             "",          "" } },
 };
 
 #if defined(HAS_GL)
