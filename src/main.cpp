@@ -70,6 +70,7 @@ const std::vector<Preset> CScreensaverShadertoy::g_presets =
   { "Wiggly (try mouse)",         "wiggly.frag.glsl",             { "",          "",             "",          "" } },
   { "Worley Noise Waters",        "worleynoisewaters.frag.glsl",  { "",          "",             "",          "" } },
   { "Cellular",                   "cellular.frag.glsl",           { "",          "",             "",          "" } },
+  { "Input Time",                 "inputtime.frag.glsl",          { "",          "",             "",          "" } },
 };
 
 #if defined(HAS_GL)
