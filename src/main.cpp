@@ -73,6 +73,7 @@ const std::vector<Preset> CScreensaverShadertoy::g_presets =
   { "Input Time",                 "inputtime.frag.glsl",          { "",          "",             "",          "" } },
   { "Coloured Circles",           "colorcircles.frag.glsl",       { "",          "",             "",          "" } },
   { "Dot Dot Dot",                "dotdotdot.frag.glsl",          { "",          "",             "",          "" } },
+  { "Fractal Tiling",             "fractaltiling.frag.glsl",      { "",          "",             "",          "" } },
 };
 
 #if defined(HAS_GL)
