@@ -71,6 +71,7 @@ const std::vector<Preset> CScreensaverShadertoy::g_presets =
   { "Worley Noise Waters",        "worleynoisewaters.frag.glsl",  { "",          "",             "",          "" } },
   { "Cellular",                   "cellular.frag.glsl",           { "",          "",             "",          "" } },
   { "Input Time",                 "inputtime.frag.glsl",          { "",          "",             "",          "" } },
+  { "Coloured Circles",           "colorcircles.frag.glsl",       { "",          "",             "",          "" } },
 };
 
 #if defined(HAS_GL)
