@@ -180,6 +180,30 @@ msgctxt "#30040"
 msgid "Worley Noise Waters"
 msgstr ""
 
+msgctxt "#30041"
+msgid "Cellular"
+msgstr ""
+
+msgctxt "#30042"
+msgid "Input Time"
+msgstr ""
+
+msgctxt "#30043"
+msgid "Coloured Circles"
+msgstr ""
+
+msgctxt "#30044"
+msgid "Dot Dot Dot"
+msgstr ""
+
+msgctxt "#30045"
+msgid "Fractal Tiling"
+msgstr ""
+
+msgctxt "#30046"
+msgid "Infinite Fall"
+msgstr ""
+
 msgctxt "#30100"
 msgid "Random"
 msgstr ""

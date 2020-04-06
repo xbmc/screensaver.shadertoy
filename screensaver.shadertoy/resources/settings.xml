@@ -48,6 +48,12 @@
               <option label="30038">38</option> <!--"Water Caustic"-->
               <option label="30039">39</option> <!--"Wiggly (try mouse)"-->
               <option label="30040">40</option> <!--"Worley Noise Waters"-->
+              <option label="30041">41</option> <!--"Cellular"-->
+              <option label="30042">42</option> <!--"Input Time"-->
+              <option label="30043">43</option> <!--"Coloured Circles"-->
+              <option label="30044">44</option> <!--"Dot Dot Dot"-->
+              <option label="30045">45</option> <!--"Fractal Tiling"-->
+              <option label="30046">46</option> <!--"Infinite Fall"-->
             </options>
           </constraints>
           <dependencies>
