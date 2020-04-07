@@ -45,138 +45,162 @@ msgid "Blue Fire"
 msgstr ""
 
 msgctxt "#30007"
-msgid "Classic RGB Plasma"
+msgid "Cellular"
 msgstr ""
 
 msgctxt "#30008"
-msgid "Dance Floor"
+msgid "Classic RGB Plasma"
 msgstr ""
 
 msgctxt "#30009"
-msgid "Effect Ringblobs"
+msgid "Coloured Circles"
 msgstr ""
 
 msgctxt "#30010"
-msgid "Ether"
+msgid "Dance Floor"
 msgstr ""
 
 msgctxt "#30011"
-msgid "Fire"
+msgid "Dot Dot Dot"
 msgstr ""
 
 msgctxt "#30012"
-msgid "Flaring 1"
+msgid "Effect Ringblobs"
 msgstr ""
 
 msgctxt "#30013"
-msgid "Flaring 2"
+msgid "Ether"
 msgstr ""
 
 msgctxt "#30014"
-msgid "Flaring 3"
+msgid "Fire"
 msgstr ""
 
 msgctxt "#30015"
-msgid "Flaring 4"
+msgid "Flaring 1"
 msgstr ""
 
 msgctxt "#30016"
-msgid "Flaring 5"
+msgid "Flaring 2"
 msgstr ""
 
 msgctxt "#30017"
-msgid "Interstellar"
+msgid "Flaring 3"
 msgstr ""
 
 msgctxt "#30018"
-msgid "Interweaving Sine Bands"
+msgid "Flaring 4"
 msgstr ""
 
 msgctxt "#30019"
-msgid "Julia Trap"
+msgid "Flaring 5"
 msgstr ""
 
 msgctxt "#30020"
-msgid "Layers Of Plasma"
+msgid "Fractal Tiling"
 msgstr ""
 
 msgctxt "#30021"
-msgid "Liquid Spectrum"
+msgid "Infinite Fall"
 msgstr ""
 
 msgctxt "#30022"
-msgid "Noise Animation - Electric"
+msgid "Input Time"
 msgstr ""
 
 msgctxt "#30023"
-msgid "Noise Animation - Flow"
+msgid "Interstellar"
 msgstr ""
 
 msgctxt "#30024"
-msgid "Noise Animation - Lava"
+msgid "Interweaving Sine Bands"
 msgstr ""
 
 msgctxt "#30025"
-msgid "Noise Animation - Watery"
+msgid "Julia Trap"
 msgstr ""
 
 msgctxt "#30026"
-msgid "Overly Satisfying"
+msgid "Layers Of Plasma"
 msgstr ""
 
 msgctxt "#30027"
-msgid "Plasma Circles"
+msgid "Liquid Spectrum"
 msgstr ""
 
 msgctxt "#30028"
-msgid "Plasma Triangles"
+msgid "Noise Animation - Electric"
 msgstr ""
 
 msgctxt "#30029"
-msgid "Plasma Matrix Spin"
+msgid "Noise Animation - Flow"
 msgstr ""
 
 msgctxt "#30030"
-msgid "Pixellated Plasma"
+msgid "Noise Animation - Lava"
 msgstr ""
 
 msgctxt "#30031"
-msgid "Silexars Creation"
+msgid "Noise Animation - Watery"
 msgstr ""
 
 msgctxt "#30032"
-msgid "Sky at Night"
+msgid "Overly Satisfying"
 msgstr ""
 
 msgctxt "#30033"
-msgid "Sphere"
+msgid "Plasma Circles"
 msgstr ""
 
 msgctxt "#30034"
-msgid "Star Tunnel"
+msgid "Plasma Triangles"
 msgstr ""
 
 msgctxt "#30035"
-msgid "Vector Field"
+msgid "Plasma Matrix Spin"
 msgstr ""
 
 msgctxt "#30036"
-msgid "Venus"
+msgid "Pixellated Plasma"
 msgstr ""
 
 msgctxt "#30037"
-msgid "Watch It Burn"
+msgid "Silexars Creation"
 msgstr ""
 
 msgctxt "#30038"
-msgid "Water Caustic"
+msgid "Sky at Night"
 msgstr ""
 
 msgctxt "#30039"
-msgid "Wiggly (try mouse)"
+msgid "Sphere"
 msgstr ""
 
 msgctxt "#30040"
+msgid "Star Tunnel"
+msgstr ""
+
+msgctxt "#30041"
+msgid "Vector Field"
+msgstr ""
+
+msgctxt "#30042"
+msgid "Venus"
+msgstr ""
+
+msgctxt "#30043"
+msgid "Watch It Burn"
+msgstr ""
+
+msgctxt "#30044"
+msgid "Water Caustic"
+msgstr ""
+
+msgctxt "#30045"
+msgid "Wiggly (try mouse)"
+msgstr ""
+
+msgctxt "#30046"
 msgid "Worley Noise Waters"
 msgstr ""
 
