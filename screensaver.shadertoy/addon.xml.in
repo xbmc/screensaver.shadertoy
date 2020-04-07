@@ -12,7 +12,7 @@
     <summary lang="en_GB">Random screensavers from Shadertoy</summary>
     <description lang="en_GB">Use the best shaders in the world with Shadertoy and add them if you want.</description>
     <platform>@PLATFORM@</platform>
-    <license>GPL-2.0</license>
+    <license>GPL-2.0-or-later</license>
     <source>https://github.com/xbmc/screensaver.shadertoy</source>
     <assets>
       <icon>resources/icon.png</icon>
