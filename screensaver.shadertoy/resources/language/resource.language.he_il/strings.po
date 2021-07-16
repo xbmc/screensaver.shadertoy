@@ -17,6 +17,14 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && n % 10 == 0) ? 2 : 3));\n"
 "X-Generator: Weblate 4.7.1\n"
 
+msgctxt "Addon Summary"
+msgid "Random screensavers from Shadertoy"
+msgstr ""
+
+msgctxt "Addon Description"
+msgid "Use the best shaders in the world with Shadertoy and add them if you want."
+msgstr ""
+
 msgctxt "#30000"
 msgid "ShaderToy"
 msgstr "ShaderToy (משחק הצללות)"
