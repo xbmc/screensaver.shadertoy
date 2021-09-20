@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="screensaver.shadertoy"
-  version="3.2.0"
+  version="20.0.0"
   name="Shadertoy Screensavers"
   provider-name="afedchin">
   <requires>@ADDON_DEPENDS@</requires>
