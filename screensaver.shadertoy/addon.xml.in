@@ -26,8 +26,10 @@
       <screenshot>resources/screenshot-09.jpg</screenshot>
       <screenshot>resources/screenshot-10.jpg</screenshot>
     </assets>
+    <summary lang="da_DK">Tilfældige pauseskærme fra Shadertoy</summary>
     <summary lang="de_DE">Zufällige Bildschirmschoner von Shadertoy</summary>
     <summary lang="en_GB">Random screensavers from Shadertoy</summary>
+    <description lang="da_DK">Brug de bedste shaders i verden med Shadertoy og tilføj dem, hvis du har lyst.</description>
     <description lang="de_DE">Verwenden Sie mit Shadertoy die besten Shader der Welt und fügen Sie sie hinzu, wenn Sie möchten.</description>
     <description lang="en_GB">Use the best shaders in the world with Shadertoy and add them if you want.</description>
   </extension>
