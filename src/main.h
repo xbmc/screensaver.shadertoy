@@ -20,7 +20,7 @@ struct Preset
   std::string channel[4];
 };
 
-class ATTRIBUTE_HIDDEN CScreensaverShadertoy
+class ATTR_DLL_LOCAL CScreensaverShadertoy
   : public kodi::addon::CAddonBase
   , public kodi::addon::CInstanceScreensaver
 {

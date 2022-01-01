@@ -153,21 +153,21 @@ void main(void)
 
 CScreensaverShadertoy::CScreensaverShadertoy()
 {
-  m_settingsUseOwnshader = kodi::GetSettingBoolean("ownshader");
+  m_settingsUseOwnshader = kodi::addon::GetSettingBoolean("ownshader");
   if (m_settingsUseOwnshader)
   {
     m_currentPreset = -1;
-    std::string str = kodi::GetSettingString("shader");
+    std::string str = kodi::addon::GetSettingString("shader");
     if (!kodi::vfs::FileExists(str))
     {
-      kodi::QueueNotification(QUEUE_ERROR, "", kodi::GetLocalizedString(30104));
+      kodi::QueueNotification(QUEUE_ERROR, "", kodi::addon::GetLocalizedString(30104));
       m_settingsUseOwnshader = false;
     }
   }
 
   if (!m_settingsUseOwnshader)
   {
-    int c = kodi::GetSettingInt("preset");
+    int c = kodi::addon::GetSettingInt("preset");
     if (c < 0)
       c = 0;
     else if (c > g_presets.size())
@@ -318,21 +318,21 @@ void CScreensaverShadertoy::Launch(int preset)
 
   if (preset < 0)
   {
-    m_usedShaderFile = kodi::GetSettingString("shader");
-    m_shaderTextures[0] = kodi::GetSettingString("texture0");
-    m_shaderTextures[1] = kodi::GetSettingString("texture1");
-    m_shaderTextures[2] = kodi::GetSettingString("texture2");
-    m_shaderTextures[3] = kodi::GetSettingString("texture3");
+    m_usedShaderFile = kodi::addon::GetSettingString("shader");
+    m_shaderTextures[0] = kodi::addon::GetSettingString("texture0");
+    m_shaderTextures[1] = kodi::addon::GetSettingString("texture1");
+    m_shaderTextures[2] = kodi::addon::GetSettingString("texture2");
+    m_shaderTextures[3] = kodi::addon::GetSettingString("texture3");
   }
   else
   {
-    m_usedShaderFile = kodi::GetAddonPath("resources/shaders/" + g_presets[preset].file);
+    m_usedShaderFile = kodi::addon::GetAddonPath("resources/shaders/" + g_presets[preset].file);
 
-    m_usedShaderFile = kodi::GetAddonPath("resources/shaders/" + g_presets[m_currentPreset].file);
-    m_shaderTextures[0] = !g_presets[m_currentPreset].channel[0].empty() ? kodi::GetAddonPath("resources/" + g_presets[m_currentPreset].channel[0]) : "";
-    m_shaderTextures[1] = !g_presets[m_currentPreset].channel[1].empty() ? kodi::GetAddonPath("resources/" + g_presets[m_currentPreset].channel[1]) : "";
-    m_shaderTextures[2] = !g_presets[m_currentPreset].channel[2].empty() ? kodi::GetAddonPath("resources/" + g_presets[m_currentPreset].channel[2]) : "";
-    m_shaderTextures[3] = !g_presets[m_currentPreset].channel[3].empty() ? kodi::GetAddonPath("resources/" + g_presets[m_currentPreset].channel[3]) : "";
+    m_usedShaderFile = kodi::addon::GetAddonPath("resources/shaders/" + g_presets[m_currentPreset].file);
+    m_shaderTextures[0] = !g_presets[m_currentPreset].channel[0].empty() ? kodi::addon::GetAddonPath("resources/" + g_presets[m_currentPreset].channel[0]) : "";
+    m_shaderTextures[1] = !g_presets[m_currentPreset].channel[1].empty() ? kodi::addon::GetAddonPath("resources/" + g_presets[m_currentPreset].channel[1]) : "";
+    m_shaderTextures[2] = !g_presets[m_currentPreset].channel[2].empty() ? kodi::addon::GetAddonPath("resources/" + g_presets[m_currentPreset].channel[2]) : "";
+    m_shaderTextures[3] = !g_presets[m_currentPreset].channel[3].empty() ? kodi::addon::GetAddonPath("resources/" + g_presets[m_currentPreset].channel[3]) : "";
   }
 
   for (int i = 0; i < 4; i++)
@@ -386,7 +386,7 @@ void CScreensaverShadertoy::UnloadTextures()
 void CScreensaverShadertoy::LoadPreset(const std::string& shaderPath)
 {
   UnloadPreset();
-  std::string vertShadertoyShader = kodi::GetAddonPath("resources/shaders/main_shadertoy_" GL_TYPE_STRING ".vert.glsl");
+  std::string vertShadertoyShader = kodi::addon::GetAddonPath("resources/shaders/main_shadertoy_" GL_TYPE_STRING ".vert.glsl");
   if (!m_shadertoyShader.LoadShaderFiles(vertShadertoyShader, shaderPath) ||
       !m_shadertoyShader.CompileAndLink("", "", fsHeader, fsFooter))
   {
@@ -411,8 +411,8 @@ void CScreensaverShadertoy::LoadPreset(const std::string& shaderPath)
   m_state.uScale = glGetUniformLocation(shadertoyShader, "uScale");
   m_state.attr_vertex_e = glGetAttribLocation(shadertoyShader,  "vertex");
 
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/main_display_" GL_TYPE_STRING ".vert.glsl");
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/main_display_" GL_TYPE_STRING ".frag.glsl");
+  std::string vertShader = kodi::addon::GetAddonPath("resources/shaders/main_display_" GL_TYPE_STRING ".vert.glsl");
+  std::string fraqShader = kodi::addon::GetAddonPath("resources/shaders/main_display_" GL_TYPE_STRING ".frag.glsl");
   if (!m_displayShader.LoadShaderFiles(vertShader, fraqShader) ||
       !m_displayShader.CompileAndLink())
   {
@@ -516,7 +516,7 @@ GLuint CScreensaverShadertoy::CreateTexture(const std::string& file, GLint inter
 int CScreensaverShadertoy::DetermineBitsPrecision()
 {
   m_state.fbwidth = 32, m_state.fbheight = 26*10;
-  LoadPreset(kodi::GetAddonPath("resources/shaders/main_test.frag.glsl"));
+  LoadPreset(kodi::addon::GetAddonPath("resources/shaders/main_test.frag.glsl"));
   RenderTo(m_shadertoyShader.ProgramHandle(), m_state.effect_fb);
   glFinish();
 
