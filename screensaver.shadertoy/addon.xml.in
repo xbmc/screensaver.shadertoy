@@ -37,5 +37,6 @@
     <description lang="en_GB">Use the best shaders in the world with Shadertoy and add them if you want.</description>
     <description lang="es_ES">Usa los mejores sombreadores en el mundo con Shadertoy y añádelos cuando quieras.</description>
     <description lang="fr_FR">Utilisez les meilleurs shaders du monde avec Shadertoy et ajoutez-les si vous le souhaitez.</description>
+    <description lang="zh_CN">与 Shadertoy 一起使用世界上最好的着色器，如果需要，可以添加它们。</description>
   </extension>
 </addon>
