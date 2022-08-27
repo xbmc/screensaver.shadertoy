@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: XBMC Addons\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-08-10 02:14+0000\n"
+"PO-Revision-Date: 2022-08-26 10:14+0000\n"
 "Last-Translator: Oskari Lavinto <olavinto@protonmail.com>\n"
 "Language-Team: Finnish <https://kodi.weblate.cloud/projects/kodi-add-ons-look-and-feel/screensaver-shadertoy/fi_fi/>\n"
 "Language: fi_fi\n"
@@ -19,209 +19,208 @@ msgstr ""
 
 msgctxt "Addon Summary"
 msgid "Random screensavers from Shadertoy"
-msgstr ""
+msgstr "Satunnaisia näytönsäästäjiä Shardertoy-sivustolta"
 
 msgctxt "Addon Description"
 msgid "Use the best shaders in the world with Shadertoy and add them if you want."
-msgstr ""
+msgstr "Käytä maailman parhaita näytönsäästäjiä Shardertoy-palvelusta ja lisää halutessasi uusia."
 
 msgctxt "#30000"
 msgid "ShaderToy"
-msgstr ""
+msgstr "Shadertoy"
 
 msgctxt "#30001"
 msgid "Ball"
-msgstr ""
+msgstr "Ball"
 
 msgctxt "#30002"
 msgid "Ball Of Fire"
-msgstr ""
+msgstr "Ball Of Fire"
 
 msgctxt "#30003"
 msgid "Bleepy Blocks"
-msgstr ""
+msgstr "Bleepy Blocks"
 
 msgctxt "#30004"
 msgid "Bob Scanline"
-msgstr ""
+msgstr "Bob Scanline"
 
 msgctxt "#30005"
 msgid "Blobs"
-msgstr ""
+msgstr "Blobs"
 
 msgctxt "#30006"
 msgid "Blue Fire"
-msgstr ""
+msgstr "Blue Fire"
 
 msgctxt "#30007"
 msgid "Cellular"
-msgstr ""
+msgstr "Cellular"
 
 msgctxt "#30008"
 msgid "Classic RGB Plasma"
-msgstr ""
+msgstr "Classic RGB Plasma"
 
 msgctxt "#30009"
 msgid "Coloured Circles"
-msgstr ""
+msgstr "Coloured Circles"
 
 msgctxt "#30010"
 msgid "Dance Floor"
-msgstr ""
+msgstr "Dance Floor"
 
 msgctxt "#30011"
 msgid "Dot Dot Dot"
-msgstr ""
+msgstr "Dot Dot Dot"
 
 msgctxt "#30012"
 msgid "Effect Ringblobs"
-msgstr ""
+msgstr "Effect Ringblobs"
 
 msgctxt "#30013"
 msgid "Ether"
-msgstr ""
+msgstr "Ether"
 
 msgctxt "#30014"
 msgid "Fire"
-msgstr ""
+msgstr "Fire"
 
 msgctxt "#30015"
 msgid "Flaring 1"
-msgstr ""
+msgstr "Flaring 1"
 
 msgctxt "#30016"
 msgid "Flaring 2"
-msgstr ""
+msgstr "Flaring 2"
 
 msgctxt "#30017"
 msgid "Flaring 3"
-msgstr ""
+msgstr "Flaring 3"
 
 msgctxt "#30018"
 msgid "Flaring 4"
-msgstr ""
+msgstr "Flaring 4"
 
 msgctxt "#30019"
 msgid "Flaring 5"
-msgstr ""
+msgstr "Flaring 5"
 
 msgctxt "#30020"
 msgid "Fractal Tiling"
-msgstr ""
+msgstr "Fractal Tiling"
 
 msgctxt "#30021"
 msgid "Infinite Fall"
-msgstr ""
+msgstr "Infinite Fall"
 
 msgctxt "#30022"
 msgid "Input Time"
-msgstr ""
+msgstr "Input Time"
 
 msgctxt "#30023"
 msgid "Interstellar"
-msgstr ""
+msgstr "Interstellar"
 
 msgctxt "#30024"
 msgid "Interweaving Sine Bands"
-msgstr ""
+msgstr "Interweaving Sine Bands"
 
 msgctxt "#30025"
 msgid "Julia Trap"
-msgstr ""
+msgstr "Julia Trap"
 
 msgctxt "#30026"
 msgid "Layers Of Plasma"
-msgstr ""
+msgstr "Layers Of Plasma"
 
 msgctxt "#30027"
 msgid "Liquid Spectrum"
-msgstr ""
+msgstr "Liquid Spectrum"
 
 msgctxt "#30028"
 msgid "Noise Animation - Electric"
-msgstr ""
+msgstr "Noise Animation - Electric"
 
 msgctxt "#30029"
 msgid "Noise Animation - Flow"
-msgstr ""
+msgstr "Noise Animation - Flow"
 
 msgctxt "#30030"
 msgid "Noise Animation - Lava"
-msgstr ""
+msgstr "Noise Animation - Lava"
 
 msgctxt "#30031"
 msgid "Noise Animation - Watery"
-msgstr ""
+msgstr "Noise Animation - Watery"
 
 msgctxt "#30032"
 msgid "Overly Satisfying"
-msgstr ""
+msgstr "Overly Satisfying"
 
 msgctxt "#30033"
 msgid "Plasma Circles"
-msgstr ""
+msgstr "Plasma Circles"
 
 msgctxt "#30034"
 msgid "Plasma Triangles"
-msgstr ""
+msgstr "Plasma Triangles"
 
 msgctxt "#30035"
 msgid "Plasma Matrix Spin"
-msgstr ""
+msgstr "Plasma Matrix Spin"
 
 msgctxt "#30036"
 msgid "Pixellated Plasma"
-msgstr ""
+msgstr "Pixellated Plasma"
 
 msgctxt "#30037"
 msgid "Silexars Creation"
-msgstr ""
+msgstr "Silexars Creation"
 
 msgctxt "#30038"
 msgid "Sky at Night"
-msgstr ""
+msgstr "Sky at Night"
 
 msgctxt "#30039"
 msgid "Sphere"
-msgstr ""
+msgstr "Sphere"
 
 msgctxt "#30040"
 msgid "Star Tunnel"
-msgstr ""
+msgstr "Star Tunnel"
 
 msgctxt "#30041"
 msgid "Vector Field"
-msgstr ""
+msgstr "Vector Field"
 
 msgctxt "#30042"
 msgid "Venus"
-msgstr ""
+msgstr "Venus"
 
 msgctxt "#30043"
 msgid "Watch It Burn"
-msgstr ""
+msgstr "Watch It Burn"
 
 msgctxt "#30044"
 msgid "Water Caustic"
-msgstr ""
+msgstr "Water Caustic"
 
 msgctxt "#30045"
 msgid "Wiggly (try mouse)"
-msgstr ""
+msgstr "Wiggly (try mouse)"
 
 msgctxt "#30046"
 msgid "Worley Noise Waters"
-msgstr ""
+msgstr "Worley Noise Waters"
 
 msgctxt "#30100"
 msgid "Random"
-msgstr ""
+msgstr "Satunnainen"
 
 msgctxt "#30101"
 msgid "General"
 msgstr "Yleiset"
 
-#, fuzzy
 msgctxt "#30102"
 msgid "Advanced"
 msgstr "Lisäasetukset"
@@ -232,11 +231,11 @@ msgstr "Käytä omaa varjostinta, esim. palvelusta https://www.shadertoy.com"
 
 msgctxt "#30104"
 msgid "Selected shader code not found!"
-msgstr ""
+msgstr "Valittua varjostinkoodia ei löytynyt!"
 
 msgctxt "#30200"
 msgid "Choose one yourself"
-msgstr "Valitse yksi itse"
+msgstr "Valitse itse"
 
 msgctxt "#30201"
 msgid "Shader"
@@ -256,24 +255,24 @@ msgstr "iKanava 3"
 
 msgctxt "#30205"
 msgid "iChannel 4"
-msgstr ""
+msgstr "iKanava 4"
 
 msgctxt "#30211"
 msgid "Shader as *.glsl"
-msgstr "Varjostimen *.glsl-tiedosto"
+msgstr "Varjostin *.glsl-tiedostona"
 
 msgctxt "#30212"
 msgid "iChannel 1 as *.png"
-msgstr ""
+msgstr "iKanava 1 *.png-tiedostona"
 
 msgctxt "#30213"
 msgid "iChannel 2 as *.png"
-msgstr ""
+msgstr "iKanava 2 *.png-tiedostona"
 
 msgctxt "#30214"
 msgid "iChannel 3 as *.png"
-msgstr ""
+msgstr "iKanava 3 *.png-tiedostona"
 
 msgctxt "#30215"
 msgid "iChannel 4 as *.png"
-msgstr ""
+msgstr "iKanava 4 *.png-tiedostona"
