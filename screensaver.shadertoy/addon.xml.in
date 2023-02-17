@@ -29,8 +29,18 @@
     <summary lang="da_DK">Tilfældige pauseskærme fra Shadertoy</summary>
     <summary lang="de_DE">Zufällige Bildschirmschoner von Shadertoy</summary>
     <summary lang="en_GB">Random screensavers from Shadertoy</summary>
+    <summary lang="es_ES">Salvapantallas aleatorios de Shadertoy</summary>
+    <summary lang="fi_FI">Satunnaisia näytönsäästäjiä Shardertoy-sivustolta</summary>
+    <summary lang="fr_FR">Écrans de veille aléatoires de Shadertoy</summary>
+    <summary lang="it_IT">Screensaver casuali da Shadertoy</summary>
+    <summary lang="zh_CN">来自 Shadertoy 的随机屏保</summary>
     <description lang="da_DK">Brug de bedste shaders i verden med Shadertoy og tilføj dem, hvis du har lyst.</description>
     <description lang="de_DE">Verwenden Sie mit Shadertoy die besten Shader der Welt und fügen Sie sie hinzu, wenn Sie möchten.</description>
     <description lang="en_GB">Use the best shaders in the world with Shadertoy and add them if you want.</description>
+    <description lang="es_ES">Usa los mejores sombreadores en el mundo con Shadertoy y añádelos cuando quieras.</description>
+    <description lang="fi_FI">Käytä maailman parhaita näytönsäästäjiä Shardertoy-palvelusta ja lisää halutessasi uusia.</description>
+    <description lang="fr_FR">Utiliser les meilleurs shaders du monde avec Shadertoy en les ajoutant si vous le souhaitez.</description>
+    <description lang="it_IT">Usa i migliori shader del mondo con Shadertoy e aggiungili se vuoi.</description>
+    <description lang="zh_CN">与 Shadertoy 一起使用世界上最好的着色器，如果需要，可以添加它们。</description>
   </extension>
 </addon>
