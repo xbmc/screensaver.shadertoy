@@ -13,11 +13,13 @@
 #include <glm/ext.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include <array>
+
 struct Preset
 {
   std::string name;
   std::string file;
-  std::string channel[4];
+  std::array <std::string, 4> channel;
 };
 
 class ATTR_DLL_LOCAL CScreensaverShadertoy
