@@ -520,9 +520,8 @@ int CScreensaverShadertoy::DetermineBitsPrecision()
   RenderTo(m_shadertoyShader.ProgramHandle(), m_state.effect_fb);
   glFinish();
 
-  unsigned char* buffer = new unsigned char[m_state.fbwidth * m_state.fbheight * 4];
-  if (buffer)
-    glReadPixels(0, 0, m_state.fbwidth, m_state.fbheight, GL_RGBA, GL_UNSIGNED_BYTE, buffer);
+  std::vector<unsigned char> buffer(m_state.fbwidth * m_state.fbheight * 4);
+  glReadPixels(0, 0, m_state.fbwidth, m_state.fbheight, GL_RGBA, GL_UNSIGNED_BYTE, buffer.data());
 
   int bits = 0;
   unsigned char b = 0;
@@ -533,7 +532,7 @@ int CScreensaverShadertoy::DetermineBitsPrecision()
       bits++;
     b = c;
   }
-  delete buffer;
+
   UnloadPreset();
   return bits;
 }
