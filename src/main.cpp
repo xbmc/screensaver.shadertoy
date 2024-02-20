@@ -187,6 +187,8 @@ void CScreensaverShadertoy::Render()
 {
   if (m_initialized)
   {
+    glBindVertexArray(m_state.vao);
+
     if (m_state.fbwidth && m_state.fbheight)
     {
       RenderTo(m_shadertoyShader.ProgramHandle(), m_state.effect_fb);
@@ -196,6 +198,8 @@ void CScreensaverShadertoy::Render()
     {
       RenderTo(m_shadertoyShader.ProgramHandle(), 0);
     }
+
+    glBindVertexArray(0);
   }
 }
 
@@ -213,6 +217,9 @@ bool CScreensaverShadertoy::Start()
     -1.0,-1.0, 1.0, 1.0,
   };
 
+  glGenVertexArrays(1, &m_state.vao);
+  glBindVertexArray(m_state.vao);
+
   // Upload vertex data to a buffer
   glGenBuffers(1, &m_state.vertex_buffer);
   glBindBuffer(GL_ARRAY_BUFFER, m_state.vertex_buffer);
@@ -220,6 +227,9 @@ bool CScreensaverShadertoy::Start()
 
   Launch(m_currentPreset);
   m_initialized = true;
+
+  glBindBuffer(GL_ARRAY_BUFFER, 0);
+  glBindVertexArray(0);
 
   return true;
 }
@@ -235,6 +245,8 @@ void CScreensaverShadertoy::Stop()
   UnloadTextures();
 
   glDeleteBuffers(1, &m_state.vertex_buffer);
+
+  glDeleteVertexArrays(1, &m_state.vao);
 }
 
 void CScreensaverShadertoy::RenderTo(GLuint shader, GLuint effect_fb)
