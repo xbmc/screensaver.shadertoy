@@ -27,6 +27,7 @@
       <screenshot>resources/screenshot-10.jpg</screenshot>
     </assets>
     <summary lang="af_ZA">Lukraak skermskutte vanaf Shadertoy</summary>
+    <summary lang="bs_BA">Slučajni čuvari ekrana od Shadertoy-a</summary>
     <summary lang="da_DK">Tilfældige pauseskærme fra Shadertoy</summary>
     <summary lang="de_DE">Zufällige Bildschirmschoner von Shadertoy</summary>
     <summary lang="en_GB">Random screensavers from Shadertoy</summary>
@@ -37,6 +38,7 @@
     <summary lang="ru_RU">Случайные заставки от Shadertoy</summary>
     <summary lang="sv_SE">Slumpmässiga skärmsläckare från Shadertoy</summary>
     <summary lang="zh_CN">来自 Shadertoy 的随机屏保</summary>
+    <description lang="bs_BA">Koristite najbolje sjenčalice na svijetu sa Shadertoy-om i dodajte ih ako želite.</description>
     <description lang="da_DK">Brug de bedste shaders i verden med Shadertoy og tilføj dem, hvis du har lyst.</description>
     <description lang="de_DE">Verwenden Sie mit Shadertoy die besten Shader der Welt und fügen Sie sie hinzu, wenn Sie möchten.</description>
     <description lang="en_GB">Use the best shaders in the world with Shadertoy and add them if you want.</description>
